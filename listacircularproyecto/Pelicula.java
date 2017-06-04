@@ -77,5 +77,11 @@ public class Pelicula {
         this.subtitled = subtitled;
         this.title = title;
     }//const
+
+    @Override
+    public String toString() {
+        return "Pelicula{" + "gender=" + gender + ", code=" + code + ", total=" + total + ", premier=" + premier + ", subtitled=" + subtitled + ", title=" + title + '}';
+    }
+    
     
 }//class
