@@ -101,5 +101,13 @@ public class MovieData {
     public CircularList listaChildish(){
         return this.childish;
     }
-    
+    public CircularList listaAction(){
+        return this.action;
+    }
+    public CircularList listaRomance(){
+        return this.romance;
+    }
+    public CircularList listaFiction(){
+        return this.fiction;
+    }
 }// class
