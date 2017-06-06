@@ -39,9 +39,12 @@ public class Ventana extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==insertar){
-            Ingresar i=new Ingresar();
-            this.add(i);
-            i.setVisible(true);
+            listaGeneral lg=new listaGeneral();
+            this.add(lg);
+            lg.setVisible(true);
+//            Ingresar i=new Ingresar();
+//            this.add(i);
+//            i.setVisible(true);
         }
     }
 }//class

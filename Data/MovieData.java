@@ -34,9 +34,8 @@ public class MovieData {
     CircularList romance = new CircularList();
     CircularList fiction = new CircularList();
     File file = new File("datos.csv");
-
-    public void leerArchivo() {
-
+    
+    public ArrayList<Pelicula>  leerArchivo() {
         try {
             CsvReader obtenerPelicula = new CsvReader("datos.csv");
             obtenerPelicula.readHeaders();
@@ -78,7 +77,7 @@ public class MovieData {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        romance.printList();
+        return arrayPeliculas;
     }//leerArchivo
 
     public Pelicula buscarPelicula(String nombre) {
@@ -88,7 +87,19 @@ public class MovieData {
                 return arrayPeliculas.get(i);
             }
         }
-
         return null;
     }//cargar
+    
+    public CircularList listaDrama(){
+        return this.drama;
+    }
+    
+    public CircularList listaComedy(){
+        return this.comedy;
+    }
+    
+    public CircularList listaChildish(){
+        return this.childish;
+    }
+    
 }// class
