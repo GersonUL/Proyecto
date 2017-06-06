@@ -15,57 +15,60 @@ import javax.swing.*;
  *
  * @author gerson
  */
-public class Ingresar extends JInternalFrame implements ActionListener{
-    private JTextField jtfCode,jtftitle,jtfgender,jtfsubtitled,jtfpremier,jtftotal;
-    private JLabel lblCode,lblTitle,lblgender,lblsubtitled,lblpremier,lbltotal;
+public class Ingresar extends JInternalFrame implements ActionListener {
+
+    private JTextField jtfCode, jtftitle, jtfgender, jtfsubtitled, jtfpremier, jtftotal;
+    private JLabel lblCode, lblTitle, lblgender, lblsubtitled, lblpremier, lbltotal;
     private JButton btnInsertar;
-    public Ingresar(){
-        super();    
+
+    public Ingresar() {
+        super();
         this.setLayout(new FlowLayout());
         this.setSize(new Dimension(50, 50));
         this.setClosable(true);
         init();
         this.setVisible(true);
     }
-    private void init(){
-        this.lblCode=new JLabel("CODE: ");
+
+    private void init() {
+        this.lblCode = new JLabel("CODE: ");
         this.add(lblCode);
-        this.jtfCode=new JTextField(10);
+        this.jtfCode = new JTextField(10);
         this.add(jtfCode);
-        
-        this.lblTitle=new JLabel("TITLE: ");
+
+        this.lblTitle = new JLabel("TITLE: ");
         this.add(lblTitle);
-        this.jtftitle=new JTextField(10);
+        this.jtftitle = new JTextField(10);
         this.add(jtftitle);
-        
-        this.lblgender=new JLabel("GENDER: ");
+
+        this.lblgender = new JLabel("GENDER: ");
         this.add(lblgender);
-        this.jtfgender=new JTextField(10);
+        this.jtfgender = new JTextField(10);
         this.add(jtfgender);
-        
-        this.lblpremier=new JLabel("PREMIER: ");
+
+        this.lblpremier = new JLabel("PREMIER: ");
         this.add(lblpremier);
-        this.jtfpremier=new JTextField(10);
+        this.jtfpremier = new JTextField(10);
         this.add(jtfpremier);
-        
-        this.lblsubtitled=new JLabel("SUBTITLED: ");
+
+        this.lblsubtitled = new JLabel("SUBTITLED: ");
         this.add(lblsubtitled);
-        this.jtfsubtitled=new JTextField(10);
+        this.jtfsubtitled = new JTextField(10);
         this.add(jtfsubtitled);
-        
-        this.lbltotal=new JLabel("TOTAL: ");
+
+        this.lbltotal = new JLabel("TOTAL: ");
         this.add(lbltotal);
-        this.jtftotal=new JTextField(10);
+        this.jtftotal = new JTextField(10);
         this.add(jtftotal);
-        
-        this.btnInsertar=new JButton("insertar");
+
+        this.btnInsertar = new JButton("insertar");
         btnInsertar.addActionListener(this);
         this.add(btnInsertar);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==btnInsertar){
+        if (e.getSource() == btnInsertar) {
             JOptionPane.showMessageDialog(null, "Insertado");
         }
     }

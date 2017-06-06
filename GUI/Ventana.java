@@ -13,33 +13,35 @@ import javax.swing.*;
  *
  * @author gerson
  */
-public class Ventana extends JFrame implements ActionListener{
+public class Ventana extends JFrame implements ActionListener {
+
     private JMenuBar jmb;
     private JMenu jmMenu;
     private JMenuItem insertar;
     JDesktopPane jdp;
-    public Ventana(){
+
+    public Ventana() {
         super("Menu principal");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(450,450);
+        this.setSize(450, 450);
         init();
     }
-    private void init(){
-    
-        this.jmb=new JMenuBar();
+
+    private void init() {
+
+        this.jmb = new JMenuBar();
         this.setJMenuBar(jmb);
-        this.jmMenu=new JMenu("Menu");
+        this.jmMenu = new JMenu("Menu");
         jmb.add(jmMenu);
-        insertar=new JMenuItem("insertar");
+        insertar = new JMenuItem("insertar");
         insertar.addActionListener(this);
         jmMenu.add(insertar);
-        
-    }
+    }//init
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==insertar){
-            listaGeneral lg=new listaGeneral();
+        if (e.getSource() == insertar) {
+            listaGeneral lg = new listaGeneral();
             this.add(lg);
             lg.setVisible(true);
 //            Ingresar i=new Ingresar();

@@ -20,14 +20,14 @@ public class ListaCircularProyecto {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-          Ventana v=new Ventana();
-          v.setVisible(true);
-        MovieData md=new MovieData();
-         md.leerArchivo();
-         System.out.println("buscando");
+        Ventana v = new Ventana();
+        v.setVisible(true);
+        MovieData md = new MovieData();
+        md.leerArchivo();
+        System.out.println("buscando");
         System.out.println(md.buscarPelicula("Postman, The (Il Postino)"));
         //md.insertar(m);
-       
+
     }
-    
+
 }

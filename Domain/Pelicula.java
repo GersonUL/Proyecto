@@ -10,11 +10,12 @@ package Domain;
  * @author gerson
  */
 public class Pelicula {
+
     private String code;
     private String title;
-    private String gender,total, subtitled,premier;
-    
-    public Pelicula(){
+    private String gender, total, subtitled, premier;
+
+    public Pelicula() {
         this.code = "";
         this.title = "";
         this.gender = "";
@@ -79,8 +80,9 @@ public class Pelicula {
     public void setPremier(String premier) {
         this.premier = premier;
     }
+
     @Override
     public String toString() {
         return "Pelicula{" + "code=" + code + ", title=" + title + ", gender=" + gender + ", total=" + total + ", subtitled=" + subtitled + ", premier=" + premier + '}';
-    }    
+    }
 }//class

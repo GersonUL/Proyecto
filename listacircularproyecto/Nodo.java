@@ -12,18 +12,20 @@ import Domain.Pelicula;
  * @author gerson
  */
 public class Nodo {
+
     private Pelicula pelicula;
     private Nodo nextPtr, previosPtr;
-    
-    public Nodo(){
-        this.pelicula=new Pelicula();
-        this.nextPtr=null;
-        this.previosPtr=null;
+
+    public Nodo() {
+        this.pelicula = new Pelicula();
+        this.nextPtr = null;
+        this.previosPtr = null;
     }//const
-    public Nodo(Pelicula pelicula,Nodo next,Nodo prev){
-        this.pelicula=pelicula;
-        this.nextPtr=next;
-        this.previosPtr=prev;
+
+    public Nodo(Pelicula pelicula, Nodo next, Nodo prev) {
+        this.pelicula = pelicula;
+        this.nextPtr = next;
+        this.previosPtr = prev;
     }//const
 
     public Pelicula getPelicula() {
@@ -49,6 +51,4 @@ public class Nodo {
     public void setPreviosPtr(Nodo previosPtr) {
         this.previosPtr = previosPtr;
     }
-
-    
 }//class
