@@ -23,11 +23,14 @@ public class ListaCircularProyecto {
        Pelicula m=new Pelicula("","playa",1+"",2+"",4+"",6+"");
        Pelicula m1=new Pelicula("","a",1+"",6+"",9+"",1+"");   
        Pelicula m2=new Pelicula("","araña",1+"",4+""+"",7+"",0+"");
-          Ventana v=new Ventana();
-          v.setVisible(true);
+//          Ventana v=new Ventana();
+//          v.setVisible(true);
         MovieData md=new MovieData();
+         md.leerArchivo();
+         System.out.println("buscando");
+        System.out.println(md.buscarPelicula("Postman, The (Il Postino)"));
         //md.insertar(m);
-        md.leerArchivo();
+       
     }
     
 }

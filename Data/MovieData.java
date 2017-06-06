@@ -24,58 +24,71 @@ import listacircularproyecto.CircularList;
  * @author Pablo Rojas Martínez
  */
 public class MovieData {
+
+    ArrayList<Pelicula> arrayPeliculas = new ArrayList<>();
     CircularList listaGeneral = new CircularList();
-    CircularList action=new CircularList();
-    CircularList drama=new CircularList();
-    CircularList comedy=new CircularList();
-    CircularList childish=new CircularList();
-    CircularList romance=new CircularList();
-    CircularList fiction=new CircularList();
-    File file = new File("datos.csv");    
-    
+    CircularList action = new CircularList();
+    CircularList drama = new CircularList();
+    CircularList comedy = new CircularList();
+    CircularList childish = new CircularList();
+    CircularList romance = new CircularList();
+    CircularList fiction = new CircularList();
+    File file = new File("datos.csv");
+
     public void leerArchivo() {
-        ArrayList<Pelicula> lista1 = new ArrayList<>();
+
         try {
-            CsvReader empleados_import = new CsvReader("datos.csv");
-            empleados_import.readHeaders();
-            while (empleados_import.readRecord()){
-                Pelicula peliNueva = new Pelicula();
-                String codigo = (empleados_import.get(0));
-                String titulo = empleados_import.get(1);
-                String genero = (empleados_import.get(2));
-                String total = (empleados_import.get(3));
-                String subtitulo = (empleados_import.get(4));
-                String premier = (empleados_import.get(5));
-                peliNueva.setCode((codigo));
-                peliNueva.setTitle(titulo);
-                peliNueva.setGender((genero));
-                peliNueva.setTotal((total));
-                peliNueva.setSubtitled((subtitulo));
-                peliNueva.setPremier((premier)); 
-                listaGeneral.insertInOrder(peliNueva);
-                lista1.add(peliNueva);
-                if(peliNueva.getGender().equals("1000")){
-                    drama.insertInOrder(peliNueva);
-                }else  if(peliNueva.getGender().equals("2000")){
-                    comedy.insertInOrder(peliNueva);
-                }else if(peliNueva.getGender().equals("3000")){
-                    childish.insertInOrder(peliNueva);
-                }else if(peliNueva.getGender().equals("4000")){
-                    action.insertInOrder(peliNueva);
-                }else if(peliNueva.getGender().equals("5000")){
-                    romance.insertInOrder(peliNueva);
-                } else if(peliNueva.getGender().equals("6000")){
-                    fiction.insertInOrder(peliNueva);
-                }else{
-                    System.out.println("Invalido");  
+            CsvReader obtenerPelicula = new CsvReader("datos.csv");
+            obtenerPelicula.readHeaders();
+            while (obtenerPelicula.readRecord()) {
+                Pelicula peliculaNueva = new Pelicula();
+                String codigo = (obtenerPelicula.get(0));
+                String titulo = obtenerPelicula.get(1);
+                String genero = (obtenerPelicula.get(2));
+                String total = (obtenerPelicula.get(3));
+                String subtitulo = (obtenerPelicula.get(4));
+                String premier = (obtenerPelicula.get(5));
+                peliculaNueva.setCode((codigo));
+                peliculaNueva.setTitle(titulo);
+                peliculaNueva.setGender((genero));
+                peliculaNueva.setTotal((total));
+                peliculaNueva.setSubtitled((subtitulo));
+                peliculaNueva.setPremier((premier));
+                listaGeneral.insertInOrder(peliculaNueva);
+                arrayPeliculas.add(peliculaNueva);
+                if (peliculaNueva.getGender().equals("1000")) {
+                    drama.insertInOrder(peliculaNueva);
+                } else if (peliculaNueva.getGender().equals("2000")) {
+                    comedy.insertInOrder(peliculaNueva);
+                } else if (peliculaNueva.getGender().equals("3000")) {
+                    childish.insertInOrder(peliculaNueva);
+                } else if (peliculaNueva.getGender().equals("4000")) {
+                    action.insertInOrder(peliculaNueva);
+                } else if (peliculaNueva.getGender().equals("5000")) {
+                    romance.insertInOrder(peliculaNueva);
+                } else if (peliculaNueva.getGender().equals("6000")) {
+                    fiction.insertInOrder(peliculaNueva);
+                } else {
+                    System.out.println("Invalido");
                 }
             }
-            empleados_import.close();
+            obtenerPelicula.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        romance.printList();        
+        romance.printList();
     }//leerArchivo
+
+    public Pelicula buscarPelicula(String nombre) {
+        Pelicula pelicula = new Pelicula();
+        for (int i = 0; i < arrayPeliculas.size(); i++) {
+            if (arrayPeliculas.get(i).getTitle().equals(nombre)) {
+                return arrayPeliculas.get(i);
+            }
+        }
+
+        return null;
+    }//cargar
 }// class
