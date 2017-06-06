@@ -5,6 +5,8 @@
  */
 package listacircularproyecto;
 
+import Domain.Pelicula;
+
 /**
  *
  * @author gerson

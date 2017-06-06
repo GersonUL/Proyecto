@@ -5,6 +5,8 @@
  */
 package listacircularproyecto;
 
+import Domain.Pelicula;
+
 /**
  *
  * @author gerson
@@ -16,58 +18,101 @@ public class CircularList {
         this.tail=null;
         this.temp=null;
     }//const
-    public void insertIntoHead(Pelicula p){
-        Nodo newPtr=new Nodo();
-        Nodo temporal=new Nodo();
-        newPtr.setPelicula(p);
-        temporal=head;
-        if(temporal==null){
+    public void insertInOrder(Pelicula pelicula) {
+        Nodo newPtr = new Nodo();
+        newPtr.setPelicula(pelicula);
+        Nodo temp = head;
+
+        while (temp != null && temp.getPelicula().getTitle().compareTo(newPtr.getPelicula().getTitle()) < 0) {
+            if (temp == tail) {
+                break;
+            }//if para saber si llego al final de la lista
+            temp = temp.getNextPtr();
+        }//while para recorrer la lista
+        //preguntar porque se detuvo
+        if (temp == null) {
             head=newPtr;
-            tail=newPtr;
-            head.setNextPtr(tail);
-            tail.setNextPtr(head);
-        }else{
-            temporal=head;
-            head=newPtr;
-            head.setNextPtr(temporal);
-            temporal.setPreviosPtr(head);
-            tail.setNextPtr(head);
+            temp=head;
+            tail=head;
             head.setPreviosPtr(tail);
-        }        
-    }//insertHead
-    public void insertOrder(Pelicula p){
-        Nodo newPtr=new Nodo();
-        Nodo tempo=new Nodo();
-        Nodo previous=new Nodo();
-        newPtr.setPelicula(p);
-        tempo=head;
-        if(tempo==null){
-            head=newPtr;
-            tempo=head;
-        }else{
-            if(newPtr.getPelicula().getTitle().compareTo(head.getPelicula().getTitle())<0){
-                newPtr.setNextPtr(head);
-                newPtr.setPreviosPtr(tail);
-                head=newPtr;
-            }else{
-                tempo=head;
-                previous=head;
-                while(newPtr.getPelicula().getTitle().compareTo(tempo.getPelicula().getTitle())>=0 && tempo.getNextPtr()!=null){
-                    previous=tempo;
-                    tempo=tempo.getNextPtr();
-                }
-                if(newPtr.getPelicula().getTitle().compareTo(tempo.getPelicula().getTitle())>0){
-                    tempo.setNextPtr(newPtr);
-                    tempo.setPreviosPtr(tail);
-                }else{
-                    newPtr.setNextPtr(tempo);
+            tail.setNextPtr(head);
+        } else {
+            if (temp == head) {
+                if (temp.getPelicula().getTitle().compareTo(newPtr.getPelicula().getTitle()) > 0) {
+                    newPtr.setNextPtr(head);
                     newPtr.setPreviosPtr(tail);
-                    previous.setNextPtr(newPtr);
-                }
-            }
-        }
-        
-    }//insertOrder
+                    head.setPreviosPtr(newPtr);
+                    head=newPtr;
+                    tail.setNextPtr(head);
+                    head.setPreviosPtr(tail);
+                } else {
+                    newPtr.setPreviosPtr(head);
+                    newPtr.setNextPtr(tail);
+                    head.setNextPtr(newPtr);
+                    tail=newPtr;
+                    tail.setNextPtr(head);
+                   head.setPreviosPtr(tail);
+                }//if si el nuevo nodo va antes o despues de head
+            } else {
+                if (temp == tail && temp.getPelicula().getTitle().compareTo(newPtr.getPelicula().getTitle()) < 0) {
+                    newPtr.setPreviosPtr(tail);
+                    newPtr.setNextPtr(head);
+                    tail.setNextPtr(newPtr);
+                    tail=newPtr;
+                    head.setPreviosPtr(tail);
+                    tail.setNextPtr(head);
+                } else {
+                    temp.getPreviosPtr().setNextPtr(newPtr);
+                    newPtr.setPreviosPtr(temp.getPreviosPtr());
+                    newPtr.setNextPtr(temp);
+                    temp.setPreviosPtr(newPtr);
+                }//if para saber si el nuevo nodo va despues de tail o esta en medio de la lista
+            }//if el en que posicion va el nuevo nodo
+        }//if la lista esta llena o no
+    }//fin method
+
+//    public void insertOrder(Pelicula p){
+//        Nodo newPtr=new Nodo();
+//        Nodo previous=new Nodo();
+//        newPtr.setPelicula(p);
+//        temp=head;
+//        if(temp==null){
+//            head=newPtr;
+//            temp=head;
+//            tail=head;
+//            head.setPreviosPtr(tail);
+//            tail.setNextPtr(head);
+//        }else{
+//            if(newPtr.getPelicula().getTitle().compareTo(head.getPelicula().getTitle())<0){
+//                newPtr.setNextPtr(head);
+//                newPtr.setPreviosPtr(tail);
+//                head=newPtr;
+//            }else{
+//                temp=head;
+//                previous=head;
+//                while(newPtr.getPelicula().getTitle().compareTo(temp.getPelicula().getTitle())>=0 && temp.getNextPtr()!=null){
+//                    previous=temp;
+//                    temp=temp.getNextPtr();
+//                }
+//                if(newPtr.getPelicula().getTitle().compareTo(temp.getPelicula().getTitle())>0){
+//                    newPtr.setNextPtr(head);
+//                    newPtr.setPreviosPtr(tail);
+//                    head.setPreviosPtr(newPtr);
+//                    head=newPtr;
+//                    tail.setNextPtr(head);
+//                    head.setPreviosPtr(tail);
+//                }else{
+//                    newPtr.setPreviosPtr(head);
+//                    newPtr.setNextPtr(tail);
+//                    head.setNextPtr(newPtr);
+//                    tail=newPtr;
+//                    tail.setNextPtr(head);
+//                    head.setPreviosPtr(tail);
+//                }
+//            }
+//        }
+//        
+//    }//insertOrder
     public void printList(){
         temp=head;
         System.out.println(temp.getPelicula().toString());
@@ -77,53 +122,4 @@ public class CircularList {
             temp=temp.getNextPtr();
         }
     }//print
-//    public void insertIntoTail(Nodo newPtr){
-//        if(head==null){
-//            head=newPtr;
-//            tail=head;
-//        }else{
-//            tail.setNextPtr(newPtr);
-//            newPtr.setPreviosPtr(tail);
-//            newPtr.setNextPtr(head);
-//            head.setPreviosPtr(newPtr);
-//            tail=newPtr;            
-//        }
-//    }//insertTail
-//    public void upDate(Nodo ant,Nodo nuevo){
-//        Nodo previoPtr;
-//        temp=head;
-//        if(head==ant){
-//            head=nuevo;
-//            head.setNextPtr(temp.getNextPtr());
-//            temp.getNextPtr().setPreviosPtr(head);
-//        }
-//        while(temp!=null &&temp!=ant){
-//            previoPtr=temp;
-//            temp=temp.getNextPtr();
-//        }
-//        temp.getNextPtr().setPreviosPtr(nuevo);
-//        nuevo.setNextPtr(temp.getNextPtr());
-//    }//upDate
-//    public void deleteToList(Nodo eliminado){
-//        temp=head;
-//        if(temp==null){
-//            System.out.println("Lista vacia");
-//        }
-//        if(head==eliminado){
-//            head.getPreviosPtr().setNextPtr(head.getNextPtr());
-//            head.getNextPtr().setPreviosPtr(head.getPreviosPtr());
-//            head=temp.getNextPtr();
-//            temp=null;
-//        }
-//        while(temp!=null){
-//            if(temp==eliminado){
-//                temp.getPreviosPtr().setNextPtr(temp.getNextPtr());
-//                temp.getNextPtr().setPreviosPtr(temp.getPreviosPtr());
-//                temp=null;
-//            }else{
-//                temp=temp.getNextPtr();
-//            }
-//        }
-//    }//delete
-    
 }//class

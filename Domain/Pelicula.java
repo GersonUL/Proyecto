@@ -3,46 +3,40 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Domain;
 
 /**
- * 
- * @author Pablo Rojas Martínez
+ *
+ * @author gerson
  */
-public class Movie {
-    private int code;
+public class Pelicula {
+    private String code;
     private String title;
-    private String gender;
-    private int total;
-    private int subtitled;
-    private int premier;
+    private String gender,total, subtitled,premier;
     
-    public Movie(){
-        this.code=0;
-        this.title="";
-        this.gender="";
-        this.total=0;
-        this.subtitled=0;
-        this.premier=0;
-    }// default constructor
+    public Pelicula(){
+        this.code = "";
+        this.title = "";
+        this.gender = "";
+        this.total = "";
+        this.subtitled = "";
+        this.premier = "";
+    }//const
 
-    public Movie(int code, String title, String gender, int total, int subtitled, int premier) {
+    public Pelicula(String code, String title, String gender, String total, String subtitled, String premier) {
         this.code = code;
         this.title = title;
         this.gender = gender;
         this.total = total;
         this.subtitled = subtitled;
         this.premier = premier;
-    }//constructor
-    
-    
+    }//const
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
@@ -62,34 +56,31 @@ public class Movie {
         this.gender = gender;
     }
 
-    public int getTotal() {
+    public String getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(String total) {
         this.total = total;
     }
 
-    public int getSubtitled() {
+    public String getSubtitled() {
         return subtitled;
     }
 
-    public void setSubtitled(int subtitled) {
+    public void setSubtitled(String subtitled) {
         this.subtitled = subtitled;
     }
 
-    public int getPremier() {
+    public String getPremier() {
         return premier;
     }
 
-    public void setPremier(int premier) {
+    public void setPremier(String premier) {
         this.premier = premier;
     }
-
     @Override
     public String toString() {
         return "Pelicula{" + "code=" + code + ", title=" + title + ", gender=" + gender + ", total=" + total + ", subtitled=" + subtitled + ", premier=" + premier + '}';
-    }
-    
-    
-}
+    }    
+}//class
