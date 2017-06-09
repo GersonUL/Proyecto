@@ -49,9 +49,9 @@ public class ListaGeneral extends JInternalFrame implements ActionListener {
         if (e.getSource() == btnMostrar) {
             MovieData md = new MovieData();
             DividirPorListas dividirPorListas = new DividirPorListas();
-            jtaLista.append(dividirPorListas.getListAction().printList() + " " + dividirPorListas.getListChildish().printList()
-                    + " " + dividirPorListas.getListComedy().printList() + " " + dividirPorListas.getListDrama().printList()
-                    + " " + dividirPorListas.getListFiction().printList() + " " + dividirPorListas.getListRomance().printList());
+            jtaLista.append("Drama List\n"+dividirPorListas.getListDrama().printList()+"Comedy List\n"+dividirPorListas.getListComedy().printList()+
+                    "Childish List\n"+dividirPorListas.getListChildish().printList()+"ActionList\n"+dividirPorListas.getListAction().printList()+
+                    "Romance List\n"+dividirPorListas.getListRomance().printList()+"Fiction List\n"+dividirPorListas.getListFiction().printList());
             btnMostrar.setEnabled(false);
         }
     }//action

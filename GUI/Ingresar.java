@@ -33,51 +33,51 @@ public class Ingresar extends JInternalFrame implements ActionListener {
 
     private void init() {
         this.lblCode = new JLabel("CODE: ");
-        this.lblCode.setBounds(10, 1, 40, 60);
+        this.lblCode.setBounds(10, 1, 100, 60);
         this.add(lblCode);
 
         this.jtfCode = new JTextField(10);
-        this.jtfCode.setBounds(80, 20, 100, 20);
+        this.jtfCode.setBounds(100, 20, 100, 20);
         this.add(jtfCode);
 
         this.lblTitle = new JLabel("TITLE: ");
-        this.lblTitle.setBounds(10, 43, 40, 40);
+        this.lblTitle.setBounds(10, 43, 100, 40);
         this.add(lblTitle);
 
         this.jtftitle = new JTextField(10);
-        this.jtftitle.setBounds(80, 50, 100, 20);
+        this.jtftitle.setBounds(100, 50, 100, 20);
         this.add(jtftitle);
 
         this.lblgender = new JLabel("GENDER: ");
-        this.lblgender.setBounds(10, 70, 60, 40);
+        this.lblgender.setBounds(10, 70, 100, 40);
         this.add(lblgender);
 
         this.jtfgender = new JTextField(10);
-        this.jtfgender.setBounds(80, 80, 100, 20);
+        this.jtfgender.setBounds(100, 80, 100, 20);
         this.add(jtfgender);
 
         this.lbltotal = new JLabel("TOTAL: ");
-        this.lbltotal.setBounds(10, 100, 60, 40);
+        this.lbltotal.setBounds(10, 100, 100, 40);
         this.add(lbltotal);
 
         this.jtftotal = new JTextField(10);
-        this.jtftotal.setBounds(80, 110, 100, 20);
+        this.jtftotal.setBounds(100, 110, 100, 20);
         this.add(jtftotal);
 
         this.lblsubtitled = new JLabel("SUBTITLED: ");
-        this.lblsubtitled.setBounds(10, 130, 70, 40);
+        this.lblsubtitled.setBounds(10, 130, 120, 40);
         this.add(lblsubtitled);
 
         this.jtfsubtitled = new JTextField(10);
-        this.jtfsubtitled.setBounds(80, 140, 100, 20);
+        this.jtfsubtitled.setBounds(100, 140, 100, 20);
         this.add(jtfsubtitled);
 
         this.lblpremier = new JLabel("PREMIER: ");
-        this.lblpremier.setBounds(10, 160, 60, 40);
+        this.lblpremier.setBounds(10, 160, 100, 40);
         this.add(lblpremier);
 
         this.jtfpremier = new JTextField(10);
-        this.jtfpremier.setBounds(80, 170, 100, 20);
+        this.jtfpremier.setBounds(100, 170, 100, 20);
         this.add(jtfpremier);
 
         this.btnInsertar = new JButton("Save");
