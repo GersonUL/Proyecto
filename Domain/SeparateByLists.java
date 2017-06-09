@@ -12,7 +12,7 @@ import Domain.CircularList;
 
 /**
  *
- * @author jeannette
+ * @author gerson
  */
 public class SeparateByLists {
     
