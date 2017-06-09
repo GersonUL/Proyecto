@@ -87,7 +87,7 @@ public class MovieData {
                 peliculaNueva.setGender((genero));
                 peliculaNueva.setTotal((total));
                 peliculaNueva.setSubtitled((subtitulo));
-                peliculaNueva.setPremier((premier) + "\n");
+                peliculaNueva.setPremier((premier) + "\n\n");
                 listaGeneral.insertInOrder(peliculaNueva);
                 arrayPeliculas.add(peliculaNueva);
 
