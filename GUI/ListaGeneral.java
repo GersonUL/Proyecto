@@ -6,6 +6,7 @@
 package GUI;
 
 import Data.MovieData;
+import Domain.DividirPorListas;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -13,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
@@ -20,16 +22,16 @@ import javax.swing.JTextArea;
  *
  * @author gerson
  */
-public class listaGeneral extends JInternalFrame implements ActionListener {
+public class ListaGeneral extends JInternalFrame implements ActionListener {
 
     private JTextArea jtaLista;
     private JButton btnMostrar;
     private JScrollPane jsp;
 
-    public listaGeneral() {
+    public ListaGeneral() {
         super();
         this.setLayout(new FlowLayout());
-        this.setSize(new Dimension(50, 50));
+        this.setSize(780, 580);
         this.setClosable(true);
         this.setVisible(true);
         this.btnMostrar = new JButton("Mostrar");
@@ -40,14 +42,15 @@ public class listaGeneral extends JInternalFrame implements ActionListener {
         jtaLista.setLineWrap(true);
         jtaLista.setWrapStyleWord(true);
         this.add(jsp, BorderLayout.CENTER);
-
     }//const
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnMostrar) {
             MovieData md = new MovieData();
-            jtaLista.append(md.leerArchivo() + "");
+            DividirPorListas dividirPorListas=new DividirPorListas();
+            jtaLista.append(dividirPorListas.getListAction().printList()+" "+dividirPorListas.getListChildish().printList()
+            +" "+dividirPorListas.getListComedy().printList()+" "+dividirPorListas.getListDrama().printList()
+            +" "+dividirPorListas.getListFiction().printList()+" "+dividirPorListas.getListRomance().printList());
             btnMostrar.setEnabled(false);
         }
     }//action

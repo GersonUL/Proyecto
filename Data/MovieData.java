@@ -17,7 +17,7 @@ import java.util.List;
 import com.csvreader.CsvWriter;
 import Domain.Pelicula;
 import com.csvreader.CsvReader;
-import listacircularproyecto.CircularList;
+import Domain.CircularList;
 
 /**
  *
@@ -26,6 +26,12 @@ import listacircularproyecto.CircularList;
 public class MovieData {
 
     ArrayList<Pelicula> arrayPeliculas = new ArrayList<>();
+    ArrayList<Pelicula> arrayDrama = new ArrayList<>();
+//    ArrayList<Pelicula> arrayPeliculas = new ArrayList<>();
+//    ArrayList<Pelicula> arrayPeliculas = new ArrayList<>();
+//    ArrayList<Pelicula> arrayPeliculas = new ArrayList<>();
+//    ArrayList<Pelicula> arrayPeliculas = new ArrayList<>();
+    
     CircularList listaGeneral = new CircularList();
     CircularList action = new CircularList();
     CircularList drama = new CircularList();
@@ -34,6 +40,37 @@ public class MovieData {
     CircularList romance = new CircularList();
     CircularList fiction = new CircularList();
     File file = new File("datos.csv");
+    
+    
+    public void insertarArchivo(Pelicula pelicula) {
+
+        //String outputFile = "Empleados3.csv";
+        boolean alreadyExists = new File("datos").exists();
+
+        if (alreadyExists) {
+            File ArchivoEmpleados = new File("datos");
+            ArchivoEmpleados.delete();
+        }
+
+        try {
+
+            CsvWriter csvOutput = new CsvWriter(new FileWriter(file, true), ',');
+
+            csvOutput.write((pelicula.getCode()));
+            csvOutput.write(pelicula.getTitle());
+            csvOutput.write(pelicula.getGender());
+            csvOutput.write(pelicula.getTotal());
+            csvOutput.write(pelicula.getSubtitled());
+            csvOutput.write(pelicula.getPremier());
+            csvOutput.endRecord();
+            csvOutput.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     
     public ArrayList<Pelicula>  leerArchivo() {
         try {
@@ -52,24 +89,10 @@ public class MovieData {
                 peliculaNueva.setGender((genero));
                 peliculaNueva.setTotal((total));
                 peliculaNueva.setSubtitled((subtitulo));
-                peliculaNueva.setPremier((premier));
+                peliculaNueva.setPremier((premier)+"\n\n");
                 listaGeneral.insertInOrder(peliculaNueva);
                 arrayPeliculas.add(peliculaNueva);
-                if (peliculaNueva.getGender().equals("1000")) {
-                    drama.insertInOrder(peliculaNueva);
-                } else if (peliculaNueva.getGender().equals("2000")) {
-                    comedy.insertInOrder(peliculaNueva);
-                } else if (peliculaNueva.getGender().equals("3000")) {
-                    childish.insertInOrder(peliculaNueva);
-                } else if (peliculaNueva.getGender().equals("4000")) {
-                    action.insertInOrder(peliculaNueva);
-                } else if (peliculaNueva.getGender().equals("5000")) {
-                    romance.insertInOrder(peliculaNueva);
-                } else if (peliculaNueva.getGender().equals("6000")) {
-                    fiction.insertInOrder(peliculaNueva);
-                } else {
-                    System.out.println("Invalido");
-                }
+                
             }
             obtenerPelicula.close();
         } catch (FileNotFoundException e) {
@@ -81,7 +104,6 @@ public class MovieData {
     }//leerArchivo
 
     public Pelicula buscarPelicula(String nombre) {
-        Pelicula pelicula = new Pelicula();
         for (int i = 0; i < arrayPeliculas.size(); i++) {
             if (arrayPeliculas.get(i).getTitle().equals(nombre)) {
                 return arrayPeliculas.get(i);
@@ -89,6 +111,8 @@ public class MovieData {
         }
         return null;
     }//cargar
+
+     
     
     public CircularList listaDrama(){
         return this.drama;
@@ -101,13 +125,5 @@ public class MovieData {
     public CircularList listaChildish(){
         return this.childish;
     }
-    public CircularList listaAction(){
-        return this.action;
-    }
-    public CircularList listaRomance(){
-        return this.romance;
-    }
-    public CircularList listaFiction(){
-        return this.fiction;
-    }
+    
 }// class

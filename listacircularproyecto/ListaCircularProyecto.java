@@ -7,6 +7,7 @@ package listacircularproyecto;
 
 import Domain.Pelicula;
 import Data.MovieData;
+import Domain.DividirPorListas;
 import GUI.Ventana;
 import java.io.IOException;
 
@@ -22,12 +23,9 @@ public class ListaCircularProyecto {
     public static void main(String[] args) throws IOException {
         Ventana v = new Ventana();
         v.setVisible(true);
-        MovieData md = new MovieData();
-        md.leerArchivo();
-        System.out.println("buscando");
-        System.out.println(md.buscarPelicula("Postman, The (Il Postino)"));
-        //md.insertar(m);
+//        MovieData movieData=new MovieData();
+//        movieData.leerArchivo();
+//        DividirPorListas dividirPorListas=new DividirPorListas();
 
     }
-
 }

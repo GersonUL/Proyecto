@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package listacircularproyecto;
+package Domain;
 
 import Domain.Pelicula;
 
@@ -73,13 +73,17 @@ public class CircularList {
         }
     }//insert
 
-    public void printList() {
+    public String printList() {
+        String cad="";
         temp = head;
-        System.out.println(temp.getPelicula().toString());
+        cad+=temp.getPelicula().toString()+"";
+// System.out.println(temp.getPelicula().toString());
         temp = temp.getNextPtr();
         while (temp != head) {
-            System.out.println(temp.getPelicula().toString());
+            cad+=temp.getPelicula().toString()+"";
+            //System.out.println(temp.getPelicula().toString());
             temp = temp.getNextPtr();
         }
+        return cad;
     }//print
 }//class

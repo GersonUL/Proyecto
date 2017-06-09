@@ -83,6 +83,6 @@ public class Pelicula {
 
     @Override
     public String toString() {
-        return "Pelicula{" + "code=" + code + ", title=" + title + ", gender=" + gender + ", total=" + total + ", subtitled=" + subtitled + ", premier=" + premier + '}';
+        return "Pelicula:" + " Code=" + code + ", Title=" + title + ", Gender=" + gender + ", Total=" + total + ", Subtitled=" + subtitled + ", Premier=" + premier;
     }
 }//class
