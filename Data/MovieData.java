@@ -21,7 +21,7 @@ import Domain.CircularList;
 
 /**
  *
- * @author Pablo Rojas Martínez
+ * @author gerson
  */
 public class MovieData {
 
@@ -31,7 +31,7 @@ public class MovieData {
 //    ArrayList<Pelicula> arrayPeliculas = new ArrayList<>();
 //    ArrayList<Pelicula> arrayPeliculas = new ArrayList<>();
 //    ArrayList<Pelicula> arrayPeliculas = new ArrayList<>();
-    
+
     CircularList listaGeneral = new CircularList();
     CircularList action = new CircularList();
     CircularList drama = new CircularList();
@@ -40,8 +40,7 @@ public class MovieData {
     CircularList romance = new CircularList();
     CircularList fiction = new CircularList();
     File file = new File("datos.csv");
-    
-    
+
     public void insertarArchivo(Pelicula pelicula) {
 
         //String outputFile = "Empleados3.csv";
@@ -71,8 +70,7 @@ public class MovieData {
 
     }
 
-    
-    public ArrayList<Pelicula>  leerArchivo() {
+    public ArrayList<Pelicula> leerArchivo() {
         try {
             CsvReader obtenerPelicula = new CsvReader("datos.csv");
             obtenerPelicula.readHeaders();
@@ -89,10 +87,10 @@ public class MovieData {
                 peliculaNueva.setGender((genero));
                 peliculaNueva.setTotal((total));
                 peliculaNueva.setSubtitled((subtitulo));
-                peliculaNueva.setPremier((premier)+"\n\n");
+                peliculaNueva.setPremier((premier) + "\n");
                 listaGeneral.insertInOrder(peliculaNueva);
                 arrayPeliculas.add(peliculaNueva);
-                
+
             }
             obtenerPelicula.close();
         } catch (FileNotFoundException e) {
@@ -110,20 +108,18 @@ public class MovieData {
             }
         }
         return null;
-    }//cargar
+    }//buscar
 
-     
-    
-    public CircularList listaDrama(){
+    public CircularList listaDrama() {
         return this.drama;
     }
-    
-    public CircularList listaComedy(){
+
+    public CircularList listaComedy() {
         return this.comedy;
     }
-    
-    public CircularList listaChildish(){
+
+    public CircularList listaChildish() {
         return this.childish;
     }
-    
+
 }// class

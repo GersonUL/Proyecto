@@ -12,11 +12,12 @@ import Domain.CircularList;
 
 /**
  *
- * @author jeannette
+ * @author gerson
  */
 public class DividirPorListas {
+
     private ArrayList<Pelicula> arregloGeneral;
-    MovieData movieData=new MovieData();    
+    MovieData movieData = new MovieData();
     CircularList listaGeneral = new CircularList();
     CircularList listAction = new CircularList();
     CircularList listaDrama = new CircularList();
@@ -26,31 +27,32 @@ public class DividirPorListas {
     CircularList listFiction = new CircularList();
 
     public DividirPorListas() {
-        arregloGeneral=movieData.leerArchivo();
+        arregloGeneral = movieData.leerArchivo();
         insertarEnListas();
     }
-    
-    public void insertarEnListas(){
+
+    public void insertarEnListas() {
         for (int i = 0; i < arregloGeneral.size(); i++) {
-            Pelicula peliculaNueva=arregloGeneral.get(i);
-        
-        if (peliculaNueva.getGender().equals("1000")) {
-                    listaDrama.insertInOrder(peliculaNueva);
-                } else if (peliculaNueva.getGender().equals("2000")) {
-                    listComedy.insertInOrder(peliculaNueva);
-                } else if (peliculaNueva.getGender().equals("3000")) {
-                    listChildish.insertInOrder(peliculaNueva);
-                } else if (peliculaNueva.getGender().equals("4000")) {
-                    listAction.insertInOrder(peliculaNueva);
-                } else if (peliculaNueva.getGender().equals("5000")) {
-                    listRomance.insertInOrder(peliculaNueva);
-                } else if (peliculaNueva.getGender().equals("6000")) {
-                    listFiction.insertInOrder(peliculaNueva);
-                } else {
-                    System.out.println("Invalido");
-                }
-        }        
+            Pelicula peliculaNueva = arregloGeneral.get(i);
+
+            if (peliculaNueva.getGender().equals("1000")) {
+                listaDrama.insertInOrder(peliculaNueva);
+            } else if (peliculaNueva.getGender().equals("2000")) {
+                listComedy.insertInOrder(peliculaNueva);
+            } else if (peliculaNueva.getGender().equals("3000")) {
+                listChildish.insertInOrder(peliculaNueva);
+            } else if (peliculaNueva.getGender().equals("4000")) {
+                listAction.insertInOrder(peliculaNueva);
+            } else if (peliculaNueva.getGender().equals("5000")) {
+                listRomance.insertInOrder(peliculaNueva);
+            } else if (peliculaNueva.getGender().equals("6000")) {
+                listFiction.insertInOrder(peliculaNueva);
+            } else {
+                System.out.println("Invalido");
+            }
+        }
     }
+
     public CircularList getListaGeneral() {
         return listaGeneral;
     }
@@ -78,5 +80,5 @@ public class DividirPorListas {
     public CircularList getListFiction() {
         return listFiction;
     }
-    
+
 }

@@ -23,9 +23,5 @@ public class ListaCircularProyecto {
     public static void main(String[] args) throws IOException {
         Ventana v = new Ventana();
         v.setVisible(true);
-//        MovieData movieData=new MovieData();
-//        movieData.leerArchivo();
-//        DividirPorListas dividirPorListas=new DividirPorListas();
-
-    }
-}
+    }//main
+}//class

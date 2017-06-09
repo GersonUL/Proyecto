@@ -43,14 +43,15 @@ public class ListaGeneral extends JInternalFrame implements ActionListener {
         jtaLista.setWrapStyleWord(true);
         this.add(jsp, BorderLayout.CENTER);
     }//const
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnMostrar) {
             MovieData md = new MovieData();
-            DividirPorListas dividirPorListas=new DividirPorListas();
-            jtaLista.append(dividirPorListas.getListAction().printList()+" "+dividirPorListas.getListChildish().printList()
-            +" "+dividirPorListas.getListComedy().printList()+" "+dividirPorListas.getListDrama().printList()
-            +" "+dividirPorListas.getListFiction().printList()+" "+dividirPorListas.getListRomance().printList());
+            DividirPorListas dividirPorListas = new DividirPorListas();
+            jtaLista.append(dividirPorListas.getListAction().printList() + " " + dividirPorListas.getListChildish().printList()
+                    + " " + dividirPorListas.getListComedy().printList() + " " + dividirPorListas.getListDrama().printList()
+                    + " " + dividirPorListas.getListFiction().printList() + " " + dividirPorListas.getListRomance().printList());
             btnMostrar.setEnabled(false);
         }
     }//action

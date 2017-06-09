@@ -74,13 +74,13 @@ public class CircularList {
     }//insert
 
     public String printList() {
-        String cad="";
+        String cad = "";
         temp = head;
-        cad+=temp.getPelicula().toString()+"";
+        cad += temp.getPelicula().toString() + "";
 // System.out.println(temp.getPelicula().toString());
         temp = temp.getNextPtr();
         while (temp != head) {
-            cad+=temp.getPelicula().toString()+"";
+            cad += temp.getPelicula().toString() + "";
             //System.out.println(temp.getPelicula().toString());
             temp = temp.getNextPtr();
         }

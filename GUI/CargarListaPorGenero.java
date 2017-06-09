@@ -82,7 +82,7 @@ public class CargarListaPorGenero extends JInternalFrame implements ActionListen
             } else if (opcion.equalsIgnoreCase("Fiction")) {
                 jtaLista.setText("");
                 jtaLista.append(dividirPorListas.getListFiction().printList());
-            }else{
+            } else {
                 jtaLista.setText("");
             }
         }
