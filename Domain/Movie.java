@@ -9,13 +9,13 @@ package Domain;
  *
  * @author gerson
  */
-public class Pelicula {
+public class Movie {
 
     private String code;
     private String title;
     private String gender, total, subtitled, premier;
 
-    public Pelicula() {
+    public Movie() {
         this.code = "";
         this.title = "";
         this.gender = "";
@@ -24,7 +24,7 @@ public class Pelicula {
         this.premier = "";
     }//const
 
-    public Pelicula(String code, String title, String gender, String total, String subtitled, String premier) {
+    public Movie(String code, String title, String gender, String total, String subtitled, String premier) {
         this.code = code;
         this.title = title;
         this.gender = gender;

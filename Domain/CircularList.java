@@ -5,7 +5,7 @@
  */
 package Domain;
 
-import Domain.Pelicula;
+import Domain.Movie;
 
 /**
  *
@@ -13,7 +13,7 @@ import Domain.Pelicula;
  */
 public class CircularList {
 
-    private Nodo head, tail, temp;
+    private Node head, tail, temp;
 
     public CircularList() {
         this.head = null;
@@ -21,10 +21,10 @@ public class CircularList {
         this.temp = null;
     }//const
 
-    public void insertInOrder(Pelicula pelicula) {
-        Nodo newPtr = new Nodo();
+    public void insertInOrder(Movie pelicula) {
+        Node newPtr = new Node();
         newPtr.setPelicula(pelicula);
-        Nodo temp = head;
+        Node temp = head;
 
         while (temp != null && temp.getPelicula().getTitle().compareTo(newPtr.getPelicula().getTitle()) < 0) {
             if (temp == tail) {

@@ -5,50 +5,50 @@
  */
 package Domain;
 
-import Domain.Pelicula;
+import Domain.Movie;
 
 /**
  *
  * @author gerson
  */
-public class Nodo {
+public class Node {
 
-    private Pelicula pelicula;
-    private Nodo nextPtr, previosPtr;
+    private Movie pelicula;
+    private Node nextPtr, previosPtr;
 
-    public Nodo() {
-        this.pelicula = new Pelicula();
+    public Node() {
+        this.pelicula = new Movie();
         this.nextPtr = null;
         this.previosPtr = null;
     }//const
 
-    public Nodo(Pelicula pelicula, Nodo next, Nodo prev) {
-        this.pelicula = pelicula;
+    public Node(Movie movie, Node next, Node prev) {
+        this.pelicula = movie;
         this.nextPtr = next;
         this.previosPtr = prev;
     }//const
 
-    public Pelicula getPelicula() {
+    public Movie getPelicula() {
         return pelicula;
     }
 
-    public void setPelicula(Pelicula pelicula) {
+    public void setPelicula(Movie pelicula) {
         this.pelicula = pelicula;
     }
 
-    public Nodo getNextPtr() {
+    public Node getNextPtr() {
         return nextPtr;
     }
 
-    public void setNextPtr(Nodo nextPtr) {
+    public void setNextPtr(Node nextPtr) {
         this.nextPtr = nextPtr;
     }
 
-    public Nodo getPreviosPtr() {
+    public Node getPreviosPtr() {
         return previosPtr;
     }
 
-    public void setPreviosPtr(Nodo previosPtr) {
+    public void setPreviosPtr(Node previosPtr) {
         this.previosPtr = previosPtr;
     }
 }//class

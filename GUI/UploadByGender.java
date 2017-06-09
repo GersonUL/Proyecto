@@ -6,7 +6,7 @@
 package GUI;
 
 import Data.MovieData;
-import Domain.DividirPorListas;
+import Domain.SeparateByLists;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -23,14 +23,14 @@ import javax.swing.JTextArea;
  *
  * @author gerson
  */
-public class CargarListaPorGenero extends JInternalFrame implements ActionListener, ItemListener {
+public class UploadByGender extends JInternalFrame implements ActionListener, ItemListener {
 
     private JTextArea jtaLista;
     private JButton btnMostrar;
     private JScrollPane jsp;
     private JComboBox jcbOpcion;
 
-    public CargarListaPorGenero() {
+    public UploadByGender() {
         super("Géneros");
         this.setLayout(new FlowLayout());
         this.setSize(780, 580);
@@ -62,7 +62,7 @@ public class CargarListaPorGenero extends JInternalFrame implements ActionListen
     public void itemStateChanged(ItemEvent e) {
         if (e.getSource() == jcbOpcion) {
             MovieData md = new MovieData();
-            DividirPorListas dividirPorListas = new DividirPorListas();
+            SeparateByLists dividirPorListas = new SeparateByLists();
             String opcion = (String) jcbOpcion.getSelectedItem();
             if (opcion.equalsIgnoreCase("Drama")) {
                 jtaLista.setText("");
@@ -82,7 +82,7 @@ public class CargarListaPorGenero extends JInternalFrame implements ActionListen
             } else if (opcion.equalsIgnoreCase("Fiction")) {
                 jtaLista.setText("");
                 jtaLista.append(dividirPorListas.getListFiction().printList());
-            } else {
+            }else{
                 jtaLista.setText("");
             }
         }

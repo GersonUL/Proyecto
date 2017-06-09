@@ -5,10 +5,7 @@
  */
 package listacircularproyecto;
 
-import Domain.Pelicula;
-import Data.MovieData;
-import Domain.DividirPorListas;
-import GUI.Ventana;
+import GUI.Window;
 import java.io.IOException;
 
 /**
@@ -21,7 +18,7 @@ public class ListaCircularProyecto {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        Ventana v = new Ventana();
+        Window v = new Window();
         v.setVisible(true);
-    }//main
-}//class
+    }
+}
