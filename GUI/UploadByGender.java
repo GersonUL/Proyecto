@@ -31,7 +31,7 @@ public class UploadByGender extends JInternalFrame implements ActionListener, It
     private JComboBox jcbOpcion;
 
     public UploadByGender() {
-        super("Géneros");
+        super();
         this.setLayout(new FlowLayout());
         this.setSize(780, 580);
         this.setClosable(true);
